@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Test - angular-async</title>
+</head>
+
+<body ng-app="app" ng-controller="rootCtrl as $ctrl">
+  <main ng-bind="$ctrl.text"></main>
+  <script src="node_modules/angular/angular.js"></script>
+  <script src="index.js"></script>
+  <script>
+    angular.module('app', ['angular-async'])
+    .controller('rootCtrl', function ($scope, $timeout, $async) {
+      this.text = '';
+      $async(async () => {
+        for (let i=0; i<100; ++i) {
+          await $timeout(50);
+          this.text += `Test ${i}\n`;
+
+          if (i > 50) throw 'Test Error';
+        }
+      }).catch(e => {
+        this.text += e;
+      });
+    });
+  </script>
+</body>
+
+</html>

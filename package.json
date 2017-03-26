@@ -1,0 +1,15 @@
+{
+  "name": "angular-async",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:CarterLi/angular-async.git"
+  },
+  "description": "Use ES7 async/await in angular 1 project",
+  "main": "index.js",
+  "author": "Carter Li",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "1"
+  }
+}
